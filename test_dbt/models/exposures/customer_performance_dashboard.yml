@@ -1,0 +1,16 @@
+version: 2
+
+exposures:
+
+  - name: customer_performance_dashboard
+    type: dashboard
+    description: >
+      This is the primary dashboard used by all sales reps to monitor customer performance.
+
+    depends_on:
+      - ref('monthly_scores')
+      - source('example_data', 'order_details')
+      - metric('sum_records')
+
+    owner:
+      name: Laura Kosec

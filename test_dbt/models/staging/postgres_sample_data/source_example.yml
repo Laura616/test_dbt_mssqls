@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: example_data
+    description: Sample data to use for source
+    database: postgres
+    schema: test_dbt
+    tables:
+      - name: order_details
+
