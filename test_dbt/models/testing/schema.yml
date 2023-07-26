@@ -1,0 +1,14 @@
+# schema.yml
+
+version: 2
+
+# table model selected_iris should be equal to iris
+models:
+  - name: m_selected_test
+
+    tests:
+      - dbt_utils.equality:
+          compare_model: ref('t_expected_table')
+          tags: ['unit_testing']
+
+# result: PASSED or FAILED

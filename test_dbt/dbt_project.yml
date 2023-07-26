@@ -7,9 +7,16 @@ version: '1.0.0'
 config-version: 2
 
 vars:
-  current_best_salesman:
+
+#  dbt_metrics_calendar_model: my_custom_calendar
+
+  current_best_salesman: "John"
 
   custom_calendar_dimension_list: ["is_weekend"]
+
+  "dbt_date:time_zone": "America/Los_Angeles"
+
+  dbt_metrics_calendar_model: custom_calendar
 
 metrics:
   test_dbt:
@@ -46,13 +53,26 @@ models:
     staging:
       +materialized: view # this applies to all models in the current project
       +schema: staging
-#      example:
-#        +tags: p1
+      example:
+        +tags: p1
+
 seeds:
-  test_dbt:
-    order_details:
-      +column_types:
+  test_dbt: # ime projekta
+    f_order_details: # ime seeda
+      +column_types: # spreminjamo tip stolpca
         updated_at: timestamp
+
+    custom_calendar:
+      +column_types: # spreminjamo tip stolpca
+        date_day: date
+        date_week: date
+        date_month: date
+        date_quarter: date
+        date_year: date
+
+
+
+
 
 
 

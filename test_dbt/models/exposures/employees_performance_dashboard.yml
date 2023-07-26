@@ -1,0 +1,16 @@
+version: 2
+
+exposures:
+
+  - name: employees performance dashboard
+    type: dashboard
+    description: >
+      This is the primary dashboard.
+
+    depends_on:
+      - ref('m_monthly_scores')
+      - source('example_data', 'f_order_details')
+      - metric('sum_records_metric')
+
+    owner:
+      name: Laura Kosec

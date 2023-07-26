@@ -1,0 +1,33 @@
+
+version: 2
+
+models:
+  - name: m_my_first_dbt_model
+    description: "A starter dbt model"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: m_my_second_dbt_model
+    description: "A starter dbt model"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        tests:
+          - unique:
+              tags: ['t1']
+
+  - name: m_monthly_scores
+    description: "Tu se nahajajo vsi recordsi združeni po id_employee, sale_month (samo mesec) in id_partnerju"
+    columns:
+      - name: sale_month
+        description: "Datum dogodka - samo mesec"
+
+  - name: m_last_month_score
+    description: "Tu se nahajajo samo zapisi zadnjega meseca"
+    columns:
+      - name: best_salesman
+        description: "Ali je best salesman enak kot je to določeno v spremenljivki"

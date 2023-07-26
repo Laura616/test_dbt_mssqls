@@ -1,0 +1,46 @@
+version: 2
+
+metrics:
+
+  - name: sum_records_metric
+    label: sum records from monthly scores
+    model: ref('m_monthly_scores')
+    description: "Sum records from monthly scores for employee with id 3"
+
+    calculation_method: sum
+    expression: record
+
+    timestamp: entry_date
+    time_grains: [day, week, month, year]
+
+    dimensions:
+      - sale_month
+
+
+    filters:
+      - field: id_employee
+        operator: '='
+        value: '3'
+
+
+  - name: count_records_metric
+    label: count records from monthly scores
+    model: ref('m_monthly_scores')
+    description: "Count records from monthly scores for employee with id 3"
+
+    calculation_method: count
+    expression: record
+
+    timestamp: entry_date
+    time_grains: [ day, week, month, year ]
+
+    dimensions:
+      - sale_month
+
+
+    filters:
+      - field: id_employee
+        operator: '='
+        value: '3'
+
+

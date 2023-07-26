@@ -1,0 +1,14 @@
+
+    
+    
+    
+    create table "postgres"."test_dbt"."custom_calendar" ("date_day" date,"date_week" date,"date_month" date,"date_quarter" date,"date_year" date)
+  ;
+    -- dbt seed --
+    
+          insert into "postgres"."test_dbt"."custom_calendar" ("date_day", "date_week", "date_month", "date_quarter", "date_year") values
+          (%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s)
+      
+
+;
+  
