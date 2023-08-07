@@ -1,4 +1,5 @@
-
+{{ config(materialized='table', post_hook=["alter table {{ this }} add column message varchar(30)"]
+) }}
 with final as (
 
     select

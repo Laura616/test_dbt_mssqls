@@ -1,6 +1,6 @@
 with records as (
 
-    select * from {{ ref('f_sales_records') }}
+    select * from {{ ref('m_records_ephemeral_example') }}
 
 ),
 
